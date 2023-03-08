@@ -14,6 +14,10 @@ import TP1.canards.fabrique.FabriqueDeComptage;
  * @author LE GLEAU Yoann
  * @version 1, 07/03/2023
  */
+
+/**
+ * Classe de test generale pour la partie 1 du TP1
+ */
 public class Simulateur {
 
     public void simuler(){

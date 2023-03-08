@@ -4,12 +4,19 @@ import java.util.List;
 
 /**
  * @author LE GLEAU Yoann
- * @version 1, 07/03/2023
+ * @version 1,07/03/2023
+ */
+
+/**
+ * Interface de stratégie de tri
  */
 public interface StrategieTri {
     <T extends Comparable<T>> List<T> trie(List<T> donnees);
 }
 
+/**
+ * Classe de tri utilisant la méthode sort de la classe List de Java (par défaut)
+ */
 class TriJava implements StrategieTri {
     @Override
     public <T extends Comparable<T>> List<T> trie(List<T> donnees) {
@@ -18,6 +25,10 @@ class TriJava implements StrategieTri {
     }
 }
 
+/**
+ * Classe de tri utilisant la méthode de tri à bulles
+ * @implNote le tri à bulles est un algorithme de tri qui consiste à comparer deux éléments consécutifs d'une liste et à les échanger si nécessaire.
+ */
 class TriBulles implements StrategieTri {
     @Override
     public <T extends Comparable<T>> List<T> trie(List<T> donnees) {
@@ -34,6 +45,10 @@ class TriBulles implements StrategieTri {
     }
 }
 
+/**
+ * Classe de tri utilisant la méthode de tri par insertion
+ * @implNote le tri par insertion est un algorithme de tri qui consiste à prendre le plus petit élément de la liste et à le placer dans la partie triée de la liste.
+ */
 class TriSelection implements StrategieTri {
     @Override
     public <T extends Comparable<T>> List<T> trie(List<T> donnees) {

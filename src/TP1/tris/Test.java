@@ -4,6 +4,10 @@ package TP1.tris;
  * @author LE GLEAU Yoann
  * @version 1, 07/03/2023
  */
+
+/**
+ * Classe Test qui permet de tester les différents tris et stratégies
+ */
 public class Test {
 
     public static void main(String[] args) {
