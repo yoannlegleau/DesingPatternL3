@@ -1,9 +1,9 @@
-package TP1.canards;
-
 /**
  * @author LE GLEAU Yoann
  * @version 1, 07/03/2023
  */
+
+package tp1.canards;
 
 /**
  * Interface AdapteurDOie qui permet d'adapter une Oie en Cancaneur

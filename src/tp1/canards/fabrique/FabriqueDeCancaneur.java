@@ -1,6 +1,6 @@
-package TP1.canards.fabrique;
+package tp1.canards.fabrique;
 
-import TP1.canards.Cancaneur;
+import tp1.canards.Cancaneur;
 
 /**
  * @author LE GLEAU Yoann

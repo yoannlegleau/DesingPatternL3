@@ -1,13 +1,12 @@
-package TP1.canards;
-
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * @author LE GLEAU Yoann
  * @version 1, 07/03/2023
  */
+
+package tp1.canards;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Une troupe est un groupe de cancanneur.
@@ -16,7 +15,7 @@ public class Troupe implements Cancaneur {
     /**
      * Une liste de canards compose la troupe.
      */
-    private List<Cancaneur> canards;
+    private final List<Cancaneur> canards;
 
     /**
      * Constructeur de la troupe.

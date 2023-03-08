@@ -1,11 +1,11 @@
-package TP1.canards.decorateur;
-
-import TP1.canards.Cancaneur;
-
 /**
  * @author LE GLEAU Yoann
  * @version 1, 07/03/2023
  */
+
+package tp1.canards.decorateur;
+
+import tp1.canards.Cancaneur;
 
 /**
  * Décorateur de Cancaneur qui fait begayer le Cancaneur

@@ -1,13 +1,13 @@
-package TP1.tris;
-
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
-
 /**
  * @author LE GLEAU Yoann
  * @version 1, 07/03/2023
  */
+
+package tp1.tris;
+
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Une base de données contient une liste de chaînes de caractères allant de 0 à 100

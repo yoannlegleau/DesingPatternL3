@@ -1,9 +1,9 @@
-package TP1.tris;
-
 /**
  * @author LE GLEAU Yoann
  * @version 1, 07/03/2023
  */
+
+package tp1.tris;
 
 /**
  * Classe Test qui permet de tester les différents tris et stratégies

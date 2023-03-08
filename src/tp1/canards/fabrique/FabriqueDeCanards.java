@@ -1,12 +1,12 @@
-package TP1.canards.fabrique;
+package tp1.canards.fabrique;
 
-import TP1.canards.AdapteurDOie;
-import TP1.canards.Cancaneur;
-import TP1.canards.Oie;
-import TP1.canards.canard.Appeau;
-import TP1.canards.canard.CanardEnPlastique;
-import TP1.canards.canard.Colvert;
-import TP1.canards.canard.Mandarin;
+import tp1.canards.AdapteurDOie;
+import tp1.canards.Cancaneur;
+import tp1.canards.Oie;
+import tp1.canards.canard.Appeau;
+import tp1.canards.canard.CanardEnPlastique;
+import tp1.canards.canard.Colvert;
+import tp1.canards.canard.Mandarin;
 
 /**
  * @author LE GLEAU Yoann

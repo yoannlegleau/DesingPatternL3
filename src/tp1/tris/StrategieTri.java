@@ -1,11 +1,12 @@
-package TP1.tris;
-
-import java.util.List;
-
 /**
  * @author LE GLEAU Yoann
  * @version 1,07/03/2023
  */
+
+
+package tp1.tris;
+
+import java.util.List;
 
 /**
  * Interface de stratégie de tri
