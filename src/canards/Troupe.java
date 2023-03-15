@@ -3,7 +3,7 @@
  * @version 1, 07/03/2023
  */
 
-package tp1.canards;
+package canards;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -4,7 +4,7 @@
  */
 
 
-package tp1.tris;
+package tris;
 
 import java.util.List;
 

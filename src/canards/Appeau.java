@@ -3,9 +3,7 @@
  * @version 1, 07/03/2023
  */
 
-package tp1.canards.canard;
-
-import tp1.canards.Cancaneur;
+package canards;
 
 /**
  * Un Appeau peut cancaner meme s'il n'est pas un valid canard

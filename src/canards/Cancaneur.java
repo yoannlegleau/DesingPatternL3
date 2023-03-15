@@ -3,7 +3,7 @@
  * @version 1, 07/03/2023
  */
 
-package tp1.canards;
+package canards;
 
 /**
  * Interface Cancaneur qui définit le comportement cancaner
@@ -12,6 +12,6 @@ public interface Cancaneur {
     /**
      * Fait cancaner le Cancaneur
      */
-    public void cancaner();
+    void cancaner();
 }
 

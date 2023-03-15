@@ -3,13 +3,7 @@
  * @version 1, 07/03/2023
  */
 
-package tp1.canards;
-
-import tp1.canards.decorateur.CompteurDeCancans;
-import tp1.canards.fabrique.FabriqueDeCanards;
-import tp1.canards.fabrique.FabriqueDeCancaneur;
-import tp1.canards.fabrique.FabriqueDeComptage;
-
+package canards;
 
 
 /**

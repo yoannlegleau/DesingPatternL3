@@ -4,7 +4,7 @@
  */
 
 
-package tp1.canards;
+package canards;
 
 /**
  * L'oie ne cancanne pas mais cacarde

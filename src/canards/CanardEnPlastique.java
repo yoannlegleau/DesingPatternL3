@@ -3,9 +3,7 @@
  * @version 1, 07/03/2023
  */
 
-package tp1.canards.canard;
-
-import tp1.canards.Cancaneur;
+package canards;
 
 /**
  * Un CanardEnPlastique peut cancaner meme s'il est en plastique.

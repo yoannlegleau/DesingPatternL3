@@ -1,7 +1,4 @@
-package tp1.canards.fabrique;
-
-import tp1.canards.Cancaneur;
-import tp1.canards.decorateur.CompteurDeCancans;
+package canards;
 
 public class FabriqueDeComptage implements FabriqueDeCancaneur {
 

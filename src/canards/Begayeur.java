@@ -3,9 +3,7 @@
  * @version 1, 07/03/2023
  */
 
-package tp1.canards.decorateur;
-
-import tp1.canards.Cancaneur;
+package canards;
 
 /**
  * Décorateur de Cancaneur qui fait begayer le Cancaneur

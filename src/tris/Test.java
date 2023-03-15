@@ -3,7 +3,7 @@
  * @version 1, 07/03/2023
  */
 
-package tp1.tris;
+package tris;
 
 /**
  * Classe Test qui permet de tester les différents tris et stratégies

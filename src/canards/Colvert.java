@@ -3,14 +3,12 @@
  * @version 1, 07/03/2023
  */
 
-package tp1.canards.canard;
-
-import tp1.canards.Cancaneur;
+package canards;
 
 /**
- * Un Mandarin fais partie de la famille des canards.
+ * Un Colvert fait partie de la famille du canard qui peut cancaner
  */
-public class Mandarin implements Cancaneur {
+public class Colvert implements Cancaneur {
     @Override
     public void cancaner() {
         System.out.println("coincoin");
