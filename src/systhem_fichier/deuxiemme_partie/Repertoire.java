@@ -11,7 +11,7 @@ import java.util.*;
  */
 public class Repertoire extends Composant{
 
-    private List<Composant> composants;
+    private LinkedList<Composant> composants;
 
     public Repertoire(String nom, LocalDate dateCreation) {
         super(nom, dateCreation);
@@ -23,7 +23,8 @@ public class Repertoire extends Composant{
         v.visiter(this);
     }
 
-    public List<Composant> getComposants() {
+    @Override
+    public LinkedList<Composant> getComposants() {
         return composants;
     }
 
@@ -40,11 +41,13 @@ public class Repertoire extends Composant{
 
         Stack<Composant> pile;
 
+        Composant root;
+
         public RepertoireIterator(Repertoire r) {
             pile = new Stack<>();
+            root = r;
             pile.add(r);
         }
-
         @Override
         public boolean hasNext() {
             return !pile.isEmpty();
@@ -53,12 +56,9 @@ public class Repertoire extends Composant{
         @Override
         public Composant next() {
             Composant composantCourent = pile.pop();
-            if (composantCourent.iterator() != null) {
-                // la liste tmp et le retournement de la liste sont superflus, car ce n'est toujours pas un réel parcours en profondeur
-                List<Composant> tmp = ((Repertoire) composantCourent).getComposants();
-                Collections.reverse(tmp);
-                for (Composant c: tmp)
-                    pile.push(c);
+            for (Iterator<Composant> it = composantCourent.getComposants().descendingIterator(); it.hasNext(); ) {
+                Composant c = it.next();
+                pile.add(c);
             }
             return composantCourent;
         }

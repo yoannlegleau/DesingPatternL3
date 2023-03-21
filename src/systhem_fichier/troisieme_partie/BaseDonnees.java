@@ -14,20 +14,20 @@ import java.util.List;
  */
 public class BaseDonnees {
 
-    BaseDonnees instance;
+    private static BaseDonnees instance;
 
     /**
      * Stratégie de tri à utiliser
      */
-    StrategieTri strategieTri;
+    private StrategieTri strategieTri;
 
     /**
      * Liste de données sous forme de chaînes de caractères "Donnée 0", "Donnée 1", ...
      */
-    List<String> donnees;
+    private List<String> donnees;
 
 
-    public BaseDonnees getInstance(){
+    public static BaseDonnees getInstance(){
         if (instance == null)
             instance = new BaseDonnees();
         return instance;

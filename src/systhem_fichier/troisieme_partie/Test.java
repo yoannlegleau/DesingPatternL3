@@ -11,17 +11,19 @@ package systhem_fichier.troisieme_partie;
 public class Test {
 
     public static void main(String[] args) {
+
+        BaseDonnees maBase = BaseDonnees.getInstance();
+
         System.out.println("\nTest TriJava");
-        BaseDonnees maBase = new BaseDonnees(new TriJava());
+        //Tri par default est le TriJava
         maBase.afficheDonneesTriees();
 
         System.out.println("\nTest TriBulles");
-        BaseDonnees maBase2 = new BaseDonnees(new TriBulles());
-        maBase2.afficheDonneesTriees();
+        maBase.setStrategieTri(new TriBulles());
+        maBase.afficheDonneesTriees();
 
         System.out.println("\nTest TriSelection");
-        BaseDonnees maBase3 = new BaseDonnees(new TriSelection());
-        maBase3.afficheDonneesTriees();
+        maBase.setStrategieTri(new TriSelection());
+        maBase.afficheDonneesTriees();
     }
-
 }

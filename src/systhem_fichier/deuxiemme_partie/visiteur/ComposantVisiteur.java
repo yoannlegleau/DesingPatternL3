@@ -14,5 +14,4 @@ public interface ComposantVisiteur {
 
     void visiter(Fichier fichier);
 
-
 }

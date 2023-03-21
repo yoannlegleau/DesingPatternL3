@@ -43,9 +43,4 @@ public class Fichier extends Composant implements Comparable<Fichier> {
         else
             return -1;
     }
-
-    @Override
-    public Iterator iterator() {
-        return null;
-    }
 }

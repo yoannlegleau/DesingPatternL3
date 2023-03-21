@@ -3,6 +3,8 @@ package systhem_fichier.deuxiemme_partie;
 import systhem_fichier.deuxiemme_partie.visiteur.ComposantVisiteur;
 
 import java.time.LocalDate;
+import java.util.Iterator;
+import java.util.LinkedList;
 
 /**
  * @author LE GLEAU Yoann
@@ -34,10 +36,26 @@ public abstract class Composant implements Iterable<Composant> {
 
     public abstract void acceptVisiteur(ComposantVisiteur v);
 
+    public LinkedList<Composant> getComposants() {
+        return new LinkedList<>();
+    }
+    @Override
+    public Iterator iterator() {
+        return new Iterator() {
+            @Override
+            public boolean hasNext() {
+                return false;
+            }
+            @Override
+            public Object next() {
+                return null;
+            }
+        };
+    }
+
     @Override
     public String toString() {
         return nom +":["+ dateCreation.toString()+"]";
     }
-
 
 }
