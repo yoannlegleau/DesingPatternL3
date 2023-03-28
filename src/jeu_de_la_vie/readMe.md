@@ -20,15 +20,15 @@ Implementation du jeu de la vie en Java dans le cadre du [TP3](doc/Jeu de la Vie
 | Prototype (clone)  | ❌          |                                                                                      |
 
 ### Pattern structurels
-| Pattern      | Utiliser    | Utilisation |
-| ------------ | ----------- | ----------- |
-| Adaptateur   | TP1-Canards |             |
-| Pont         |             |             |
-| Composite    | TP2-Fichier |             |
-| Décorateur   | TP1-Canards |             |
-| Façade       |             |             |
-| Poids mouche |             |             |
-| Procuration  |             |             |
+| Pattern                 | Utiliser    | Utilisation                                                                         |
+|-------------------------|-------------|-------------------------------------------------------------------------------------|
+| Adaptateur              | TP1-Canards |                                                                                     |
+| Pont                    | ❌          |                                                                                     |
+| Composite               | TP2-Fichier |                                                                                     |
+| Décorateur              | TP1-Canards |                                                                                     |
+| Façade                  | ✅           | permet de fournire une interface simplifiée du jeux de la vie au interfaces graphiq |
+| Poids mouche            | 🧠          |                                                                                     |
+| Procuration (proxi/bdd) | ❌           |                                                                                     |
 
 ### Pattern comportementaux
 | Pattern                  | Utiliser         | Utilisation                                                         |
@@ -81,6 +81,12 @@ Lorsqu'une cellule naît, si toutes les cellules qui lui ont donné naissance se
 - [ ] Stoper la geeration quand tout est fix;
 - [ ] methode de Undo (pattern memento)
 - [ ] pattern Mediator pour la gestion de l'interface de creation de grille
+- [x] pattern facade pour la gestion de l'interface avec jeux de la vie
+  - [ ] detailer doc
+- [ ] pattern poids mouche pour la gestion des cellule dans l'inteface
+  - intrinsèque: etat , position
+  - extrinsèque: couleur / image / taille ...
+- [ ] pattern proxy pour 
 
 ## Interface grafique
 
