@@ -13,6 +13,7 @@ import java.util.Stack;
 /**
  * @author LE GLEAU Yoann
  * @version 1, 21/03/2023
+ * @pakage bug
  */
 public class JeuDeLaVie implements Observable {
 

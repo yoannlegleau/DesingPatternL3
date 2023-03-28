@@ -12,50 +12,49 @@ import java.awt.event.WindowEvent;
  * @version 1, 3/28/2023
  * @pakage jeu_de_la_vie.interfaces
  */
-public class InterfaceAWT extends Canvas implements Observateur {
+public class InterfaceAWT extends InterfaceGrafique {
 
     private static final double FRAME_SIZE_factor = 0.5 ;
 
-    private JeuDeLaVie jeu;
-
-
+    private Canvas canvas;
 
     public InterfaceAWT(JeuDeLaVie jeu) {
-
+        super(jeu);
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-
-        screenSize.getWidth();
-
         Frame frame = new Frame();
         frame.addWindowListener (new WindowAdapter() {
             public void windowClosing (WindowEvent e) {
                 frame.dispose();
             }
         });
-        frame.add(this);
-        frame.setSize((int) (screenSize.getWidth()*FRAME_SIZE_factor), (int) (screenSize.getHeight()*FRAME_SIZE_factor));
+        canvas= new Canvas(){
+            @Override
+            public void paint(Graphics g) {
+                super.paint(g);
+                int cellsize = canvas.getHeight()/ jeu.getxMax();
+                int margin = (canvas.getWidth() - cellsize*jeu.getxMax())/2;
+                for (int x = 0; x < jeu.getxMax(); x++) {
+                    for (int y = 0; y < jeu.getyMax(); y++) {
+                        if(jeu.getGrilleXY(x,y).estVivante()){
+                            g.setColor(Color.BLACK);
+                            g.fillOval(margin+ x*cellsize,y*cellsize,cellsize,cellsize);
+                        }
+                    }
+                }
+            }
+        };
+
+        frame.add(canvas);
+        frame.setSize((int) (screenSize.getHeight()*FRAME_SIZE_factor), (int) (screenSize.getHeight()*FRAME_SIZE_factor));
         frame.setTitle("Jeu de la vie");
         frame.setVisible(true);
         this.jeu = jeu;
         jeu.atacheObservateur(this);
     }
 
-    @Override
-    public void paint(Graphics g) {
-        super.paint(g);
-        int cellsize = getHeight()/ jeu.getxMax();
-        for (int x = 0; x < jeu.getxMax(); x++) {
-            for (int y = 0; y < jeu.getyMax(); y++) {
-                if(jeu.getGrilleXY(x,y).estVivante()){
-                    g.setColor(Color.BLACK);
-                    g.fillOval(x*cellsize,y*cellsize,cellsize,cellsize);
-                }
-            }
-        }
-    }
 
     @Override
     public void actualiser() {
-        repaint();
+        canvas.repaint();
     }
 }

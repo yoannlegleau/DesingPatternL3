@@ -10,8 +10,8 @@ import jeu_de_la_vie.Observateur;
  */
 public class InterfaceGrafique implements Observateur {
 
-    private JeuDeLaVie jeu;
-    private int generation = 0;
+    protected JeuDeLaVie jeu;
+    protected int generation = 0;
 
     public InterfaceGrafique(JeuDeLaVie jeu) {
         this.jeu = jeu;

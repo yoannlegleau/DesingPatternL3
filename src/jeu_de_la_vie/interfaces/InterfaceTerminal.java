@@ -11,16 +11,13 @@ import static java.time.InstantSource.system;
  * @author LE GLEAU Yoann
  * @version 1, 21/03/2023
  */
-public class InterfaceTerminal implements Observateur {
-
-    private JeuDeLaVie jeu;
-
+public class InterfaceTerminal extends InterfaceGrafique  implements Observateur {
     private int generation = 0;
 
     public InterfaceTerminal(JeuDeLaVie jeu) {
-        this.jeu = jeu;
-        jeu.atacheObservateur(this);
+        super(jeu);
     }
+
 
     @Override
     public void actualiser() {
