@@ -1,6 +1,8 @@
 # Jeux de la vie
 Auteur : Yoann LE GLEAU 
 
+Ce document est issu du projet suivent [TP3 Jeux de la vie](https://github.com/yoannlegleau/DesingPatternL3/tree/master/src/jeu_de_la_vie).
+
 ---
 
 ## Description
@@ -41,6 +43,13 @@ Implementation du jeu de la vie en Java dans le cadre du [TP3](doc/Jeu de la Vie
 | Stratégie                | TP2-Algo de tris |                                                                     |
 | Patron de méthode        |                  |                                                                     |
 | Visiteur                 | OUI              | Permet d'implémenter plusieurs Règles (basique …)                   |
+
+
+# diagramme de classe
+
+## Diagramme de classe de la première version
+![Diagramme de classe de la première version](doc/package.png)
+
 
 # Amélioration
 
