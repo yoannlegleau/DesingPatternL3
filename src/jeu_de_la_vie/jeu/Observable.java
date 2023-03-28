@@ -1,4 +1,4 @@
-package jeu_de_la_vie;
+package jeu_de_la_vie.jeu;
 
 /**
  * @author LE GLEAU Yoann

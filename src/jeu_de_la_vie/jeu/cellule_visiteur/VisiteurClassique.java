@@ -1,9 +1,9 @@
-package jeu_de_la_vie.cellule_visiteur;
+package jeu_de_la_vie.jeu.cellule_visiteur;
 
-import jeu_de_la_vie.Cellule;
-import jeu_de_la_vie.JeuDeLaVie;
-import jeu_de_la_vie.commande.CommandeMeurt;
-import jeu_de_la_vie.commande.CommandeVit;
+import jeu_de_la_vie.jeu.JeuDeLaVie;
+import jeu_de_la_vie.jeu.cellule_etat.Cellule;
+import jeu_de_la_vie.jeu.commande.CommandeMeurt;
+import jeu_de_la_vie.jeu.commande.CommandeVit;
 
 /**
  * @author LE GLEAU Yoann

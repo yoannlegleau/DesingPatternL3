@@ -1,7 +1,8 @@
-package jeu_de_la_vie.cellule_visiteur;
+package jeu_de_la_vie.jeu.cellule_visiteur;
 
-import jeu_de_la_vie.Cellule;
-import jeu_de_la_vie.JeuDeLaVie;
+
+import jeu_de_la_vie.jeu.JeuDeLaVie;
+import jeu_de_la_vie.jeu.cellule_etat.Cellule;
 
 /**
  * @author LE GLEAU Yoann

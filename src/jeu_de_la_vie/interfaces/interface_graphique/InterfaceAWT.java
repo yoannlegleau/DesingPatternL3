@@ -1,7 +1,6 @@
-package jeu_de_la_vie.interfaces;
+package jeu_de_la_vie.interfaces.interface_graphique;
 
-import jeu_de_la_vie.JeuDeLaVie;
-import jeu_de_la_vie.Observateur;
+import jeu_de_la_vie.jeu.JeuDeLaVie;
 
 import java.awt.*;
 import java.awt.event.WindowAdapter;

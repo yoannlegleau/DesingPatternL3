@@ -1,13 +1,14 @@
-package jeu_de_la_vie;
+package jeu_de_la_vie.jeu.cellule_etat;
 
-import jeu_de_la_vie.cellule_etat.CelluleEtat;
-import jeu_de_la_vie.cellule_visiteur.Visiteur;
+
+import jeu_de_la_vie.jeu.JeuDeLaVie;
+import jeu_de_la_vie.jeu.cellule_visiteur.Visiteur;
 
 /**
  * @author LE GLEAU Yoann
  * @version 1, 21/03/2023
  */
-public class Cellule  {
+public class Cellule {
 
     private CelluleEtat etat;
 

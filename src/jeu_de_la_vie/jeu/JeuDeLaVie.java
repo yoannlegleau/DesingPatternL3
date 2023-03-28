@@ -1,10 +1,11 @@
-package jeu_de_la_vie;
+package jeu_de_la_vie.jeu;
 
-import jeu_de_la_vie.cellule_etat.CelluleEtatMort;
-import jeu_de_la_vie.cellule_etat.CelluleEtatVivante;
-import jeu_de_la_vie.cellule_visiteur.Visiteur;
-import jeu_de_la_vie.cellule_visiteur.VisiteurClassique;
-import jeu_de_la_vie.commande.Commande;
+import jeu_de_la_vie.jeu.cellule_etat.Cellule;
+import jeu_de_la_vie.jeu.cellule_etat.CelluleEtatMort;
+import jeu_de_la_vie.jeu.cellule_etat.CelluleEtatVivante;
+import jeu_de_la_vie.jeu.cellule_visiteur.Visiteur;
+import jeu_de_la_vie.jeu.cellule_visiteur.VisiteurClassique;
+import jeu_de_la_vie.jeu.commande.Commande;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,14 +77,13 @@ public class JeuDeLaVie implements Observable {
         return isModify;
     }
 
-
     //Méthodes du pattern Commande
 
     public void ajouteCommande(Commande commande) {
         commandes.add(commande);
     }
 
-    public void executeCommandes() {
+    private void executeCommandes() {
         while (!commandes.isEmpty())
             commandes.pop().executer();
     }

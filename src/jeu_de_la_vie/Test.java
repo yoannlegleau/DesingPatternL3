@@ -1,8 +1,8 @@
 package jeu_de_la_vie;
 
-import jeu_de_la_vie.interfaces.InterfaceAWT;
-import jeu_de_la_vie.interfaces.InterfaceSwing;
-import jeu_de_la_vie.interfaces.InterfaceTerminal;
+import jeu_de_la_vie.interfaces.interface_graphique.InterfaceAWT;
+import jeu_de_la_vie.interfaces.interface_graphique.InterfaceSwing;
+import jeu_de_la_vie.jeu.JeuDeLaVie;
 
 import static java.lang.Thread.sleep;
 
@@ -15,7 +15,7 @@ public class Test {
         JeuDeLaVie jeu = new JeuDeLaVie();
 
         //lancement des interfaces
-        //new InterfaceAWT(jeu);
+        new InterfaceAWT(jeu);
         //new InterfaceTerminal(jeu);
         new InterfaceSwing(jeu);
 

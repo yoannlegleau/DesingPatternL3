@@ -1,6 +1,6 @@
-package jeu_de_la_vie.commande;
+package jeu_de_la_vie.jeu.commande;
 
-import jeu_de_la_vie.Cellule;
+import jeu_de_la_vie.jeu.cellule_etat.Cellule;
 
 /**
  * @author LE GLEAU Yoann

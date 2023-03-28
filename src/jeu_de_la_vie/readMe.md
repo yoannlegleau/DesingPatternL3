@@ -11,13 +11,13 @@ Implementation du jeu de la vie en Java dans le cadre du [TP3](doc/Jeu de la Vie
 ## Design Pattern
 
 ### Pattern de creation d'objet
-| Pattern            | Utiliser    | Utilisation                                                                          |
-| ------------------ | ----------- | ------------------------------------------------------------------------------------ |
-| Singleton          | Oui         | Permet de créer une seule instance des classes CelluleEtatMort et CelluleEtatVivante |
-| Fabrique           |             |                                                                                      |
+| Pattern            | Utiliser   | Utilisation                                                                          |
+|--------------------|------------| ------------------------------------------------------------------------------------ |
+| Singleton          | Oui        | Permet de créer une seule instance des classes CelluleEtatMort et CelluleEtatVivante |
+| Fabrique           | TP1-Canards |                                                                                      |
 | Fabrique Abstraite | TP1-Canards |                                                                                      |
-| Monteur            |             |                                                                                      |
-| Prototype          |             |                                                                                      |
+| Monteur            | ❌          |                                                                                      |
+| Prototype (clone)  | ❌          |                                                                                      |
 
 ### Pattern structurels
 | Pattern      | Utiliser    | Utilisation |
