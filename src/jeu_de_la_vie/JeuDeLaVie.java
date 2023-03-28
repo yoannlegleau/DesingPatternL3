@@ -61,12 +61,18 @@ public class JeuDeLaVie implements Observable {
         return this.grille[x][y];
     }
 
-    //Méthodes du de roulement du jeu
-
-    public void calculerGenerationSuivante(){
+    /**
+     * Méthodes du de roulement du jeu
+     * @return true si la generation suivente posed des modification
+     */
+    public boolean calculerGenerationSuivante(){
+        boolean isModify = false;
         distribueVisiteur(new VisiteurClassique(this));
+        if (!commandes.isEmpty())
+            isModify = true;
         executeCommandes();
         notifieObservateurs();
+        return isModify;
     }
 
 

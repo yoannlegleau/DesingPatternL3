@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>jeu_de_la_vie</OriginalElement>
+  <nodes>
+    <node x="926.939662642786" y="570.1114019636226">jeu_de_la_vie.cellule_visiteur.Visiteur</node>
+    <node x="180.5129668003347" y="521.0731087469924">jeu_de_la_vie.interfaces.InterfaceAWT</node>
+    <node x="926.9396626427858" y="425.3827367557451">jeu_de_la_vie.cellule_visiteur.VisiteurClassique</node>
+    <node x="419.19020968873735" y="213.07310874699238">jeu_de_la_vie.JeuDeLaVie</node>
+    <node x="1047.4396626427858" y="257.32912625246286">jeu_de_la_vie.commande.CommandeMeurt</node>
+    <node x="88.64535192068479" y="384.05195630352057">jeu_de_la_vie.Observateur</node>
+    <node x="-110.05979031126265" y="2.574202838896099">jeu_de_la_vie.cellule_etat.CelluleEtatVivante</node>
+    <node x="221.5129668003347" y="809.0731087469925">jeu_de_la_vie.Test</node>
+    <node x="957.9396626427858" y="120.5742028388961">jeu_de_la_vie.commande.Commande</node>
+    <node x="854.4396626427858" y="257.32912625246286">jeu_de_la_vie.commande.CommandeVit</node>
+    <node x="10.690209688737355" y="-178.4257971611039">jeu_de_la_vie.cellule_etat.CelluleEtat</node>
+    <node x="443.19020968873735" y="-90.92689125300762">jeu_de_la_vie.Cellule</node>
+    <node x="-63.60920679558063" y="521.0731087469924">jeu_de_la_vie.interfaces.InterfaceTerminal</node>
+    <node x="33.39079320441954" y="227.36254164268885">jeu_de_la_vie.Observable</node>
+    <node x="125.94020968873735" y="-8.425797161103901">jeu_de_la_vie.cellule_etat.CelluleEtatMort</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="jeu_de_la_vie.Test" target="jeu_de_la_vie.interfaces.InterfaceTerminal" relationship="CREATE">
+      <point x="-74.5" y="0.0" />
+      <point x="26.89099999999999" y="847.5731087469925" />
+      <point x="-14.999793204419376" y="61.0" />
+    </edge>
+    <edge source="jeu_de_la_vie.cellule_visiteur.VisiteurClassique" target="jeu_de_la_vie.cellule_visiteur.Visiteur" relationship="GENERALIZATION">
+      <point x="1.1368683772161603E-13" y="49.5" />
+      <point x="0.0" y="-61.0" />
+    </edge>
+    <edge source="jeu_de_la_vie.cellule_visiteur.VisiteurClassique" target="jeu_de_la_vie.commande.CommandeMeurt" relationship="CREATE">
+      <point x="103.0" y="-49.5" />
+      <point x="-2.5" y="38.5" />
+    </edge>
+    <edge source="jeu_de_la_vie.cellule_etat.CelluleEtatMort" target="jeu_de_la_vie.cellule_etat.CelluleEtat" relationship="REALIZATION">
+      <point x="-2.0968873735682791E-4" y="-105.0002028388961" />
+      <point x="228.44" y="-33.0" />
+      <point x="113.19" y="-33.0" />
+      <point x="-2.0968873735682791E-4" y="59.9997971611039" />
+    </edge>
+    <edge source="jeu_de_la_vie.JeuDeLaVie" target="jeu_de_la_vie.Observable" relationship="REALIZATION">
+      <point x="-167.0" y="-162.71056710430355" />
+      <point x="126.5" y="0.0" />
+    </edge>
+    <edge source="jeu_de_la_vie.JeuDeLaVie" target="jeu_de_la_vie.Cellule" relationship="CREATE">
+      <point x="-20.0002096887373" y="-226.0" />
+      <point x="-15.0002096887373" y="127.0" />
+    </edge>
+    <edge source="jeu_de_la_vie.commande.Commande" target="jeu_de_la_vie.Cellule" relationship="TO_ONE">
+      <point x="-79.49966264278578" y="-15.001202838896091" />
+      <point x="736.69" y="155.573" />
+      <point x="736.69" y="189.0" />
+      <point x="581.19" y="189.0" />
+      <point x="-2.096887372999845E-4" y="126.99989125300763" />
+    </edge>
+    <edge source="jeu_de_la_vie.commande.CommandeMeurt" target="jeu_de_la_vie.commande.Commande" relationship="GENERALIZATION">
+      <point x="3.3735721422090137E-4" y="-38.50012625246285" />
+      <point x="1142.94" y="239.0" />
+      <point x="1037.44" y="239.0" />
+      <point x="3.3735721422090137E-4" y="49.99979716110391" />
+    </edge>
+    <edge source="jeu_de_la_vie.Test" target="jeu_de_la_vie.JeuDeLaVie" relationship="CREATE">
+      <point x="0.0" y="-38.5" />
+      <point x="296.0129668003347" y="864.0731087469923" />
+      <point x="586.1902096887374" y="864.0731087469923" />
+      <point x="0.0" y="226.0" />
+    </edge>
+    <edge source="jeu_de_la_vie.interfaces.InterfaceTerminal" target="jeu_de_la_vie.Observateur" relationship="REALIZATION">
+      <point x="98.0" y="-61.0" />
+      <point x="-15.254558716265421" y="27.0" />
+    </edge>
+    <edge source="jeu_de_la_vie.interfaces.InterfaceAWT" target="jeu_de_la_vie.Observateur" relationship="REALIZATION">
+      <point x="-87.5" y="-72.0" />
+      <point x="32.86761487964992" y="27.0" />
+    </edge>
+    <edge source="jeu_de_la_vie.Test" target="jeu_de_la_vie.interfaces.InterfaceAWT" relationship="CREATE">
+      <point x="-74.5" y="-15.0" />
+      <point x="260.513" y="832.5731087469925" />
+      <point x="-14.999966800334732" y="72.0" />
+    </edge>
+    <edge source="jeu_de_la_vie.JeuDeLaVie" target="jeu_de_la_vie.cellule_visiteur.VisiteurClassique" relationship="CREATE">
+      <point x="167.0" y="35.809628008752725" />
+      <point x="-110.5" y="0.0" />
+    </edge>
+    <edge source="jeu_de_la_vie.cellule_visiteur.Visiteur" target="jeu_de_la_vie.JeuDeLaVie" relationship="TO_ONE">
+      <point x="-110.5" y="0.0" />
+      <point x="167.0" y="192.03829321663022" />
+    </edge>
+    <edge source="jeu_de_la_vie.JeuDeLaVie" target="jeu_de_la_vie.Observateur" relationship="TO_MANY">
+      <point x="-162.52354302207073" y="-27.073108746992375" />
+      <point x="423.66666666666663" y="411.05195630352057" />
+      <point x="66.5" y="0.0" />
+    </edge>
+    <edge source="jeu_de_la_vie.cellule_etat.CelluleEtatVivante" target="jeu_de_la_vie.cellule_etat.CelluleEtat" relationship="REALIZATION">
+      <point x="-2.0968873735505156E-4" y="-94.0002028388961" />
+      <point x="-2.0600000000000005" y="-33.0" />
+      <point x="113.19" y="-33.0" />
+      <point x="-2.0968873735682791E-4" y="59.9997971611039" />
+    </edge>
+    <edge source="jeu_de_la_vie.cellule_visiteur.VisiteurClassique" target="jeu_de_la_vie.commande.CommandeVit" relationship="CREATE">
+      <point x="-96.5" y="-49.5" />
+      <point x="0.0" y="38.5" />
+    </edge>
+    <edge source="jeu_de_la_vie.commande.CommandeVit" target="jeu_de_la_vie.commande.Commande" relationship="GENERALIZATION">
+      <point x="3.3735721422090137E-4" y="-38.50012625246285" />
+      <point x="940.94" y="239.0" />
+      <point x="1037.44" y="239.0" />
+      <point x="3.3735721422090137E-4" y="49.99979716110391" />
+    </edge>
+    <edge source="jeu_de_la_vie.interfaces.InterfaceTerminal" target="jeu_de_la_vie.JeuDeLaVie" relationship="TO_ONE">
+      <point x="2.067955806310806E-4" y="60.999891253007604" />
+      <point x="41.891" y="696.4064420803259" />
+      <point x="571.19" y="696.4064420803259" />
+      <point x="-15.0002096887373" y="225.9998912530076" />
+    </edge>
+    <edge source="jeu_de_la_vie.Cellule" target="jeu_de_la_vie.cellule_etat.CelluleEtat" relationship="TO_ONE">
+      <point x="-138.0" y="-119.5" />
+      <point x="102.5" y="34.998905908096276" />
+    </edge>
+    <edge source="jeu_de_la_vie.interfaces.InterfaceAWT" target="jeu_de_la_vie.JeuDeLaVie" relationship="TO_ONE">
+      <point x="3.319966526760254E-5" y="71.9998912530076" />
+      <point x="275.513" y="688.0" />
+      <point x="571.19" y="688.0" />
+      <point x="-15.0002096887373" y="225.9998912530076" />
+    </edge>
+    <edge source="jeu_de_la_vie.JeuDeLaVie" target="jeu_de_la_vie.Cellule" relationship="TO_MANY">
+      <point x="-2.096887372999845E-4" y="-226.00010874699237" />
+      <point x="586.19" y="189.0" />
+      <point x="581.19" y="189.0" />
+      <point x="-2.096887372999845E-4" y="126.99989125300763" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.6144000000000002" showDependencies="true" x="357.18489583333337" y="572.9531249999998" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
