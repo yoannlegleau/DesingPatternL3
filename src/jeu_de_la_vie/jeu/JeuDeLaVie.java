@@ -6,6 +6,8 @@ import jeu_de_la_vie.jeu.cellule_etat.CelluleEtatVivante;
 import jeu_de_la_vie.jeu.cellule_visiteur.Visiteur;
 import jeu_de_la_vie.jeu.cellule_visiteur.VisiteurClassique;
 import jeu_de_la_vie.jeu.commande.Commande;
+import jeu_de_la_vie.jeu.observateur.Observable;
+import jeu_de_la_vie.jeu.observateur.Observateur;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,8 @@
 package jeu_de_la_vie.interfaces.interface_graphique;
 
+import jeu_de_la_vie.interfaces.JeuxDeLaVieFacade;
 import jeu_de_la_vie.jeu.JeuDeLaVie;
-import jeu_de_la_vie.jeu.Observateur;
+import jeu_de_la_vie.jeu.observateur.Observateur;
 
 /**
  * @author LE GLEAU Yoann
@@ -10,7 +11,7 @@ import jeu_de_la_vie.jeu.Observateur;
 public class InterfaceTerminal extends InterfaceGrafique  implements Observateur {
     private int generation = 0;
 
-    public InterfaceTerminal(JeuDeLaVie jeu) {
+    public InterfaceTerminal(JeuxDeLaVieFacade jeu) {
         super(jeu);
     }
 

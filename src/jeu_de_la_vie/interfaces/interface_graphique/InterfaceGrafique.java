@@ -1,25 +1,20 @@
 package jeu_de_la_vie.interfaces.interface_graphique;
 
-import jeu_de_la_vie.jeu.JeuDeLaVie;
-import jeu_de_la_vie.jeu.Observateur;
+import jeu_de_la_vie.interfaces.JeuxDeLaVieFacade;
+import jeu_de_la_vie.jeu.JeuDeLaVieManager;
+import jeu_de_la_vie.jeu.observateur.Observateur;
 
 /**
  * @author LE GLEAU Yoann
  * @version 1, 3/28/2023
  * @pakage jeu_de_la_vie.interfaces
  */
-public class InterfaceGrafique implements Observateur {
+public abstract class InterfaceGrafique {
 
-    protected JeuDeLaVie jeu;
-    protected int generation = 0;
+    protected JeuxDeLaVieFacade jeu;
 
-    public InterfaceGrafique(JeuDeLaVie jeu) {
+    public InterfaceGrafique(JeuxDeLaVieFacade jeu) {
         this.jeu = jeu;
-        jeu.atacheObservateur(this);
     }
 
-    @Override
-    public void actualiser() {
-        generation ++;
-    }
 }

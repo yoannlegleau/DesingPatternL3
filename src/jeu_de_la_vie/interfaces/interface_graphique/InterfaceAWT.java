@@ -1,6 +1,8 @@
 package jeu_de_la_vie.interfaces.interface_graphique;
 
+import jeu_de_la_vie.interfaces.JeuxDeLaVieFacade;
 import jeu_de_la_vie.jeu.JeuDeLaVie;
+import jeu_de_la_vie.jeu.observateur.Observateur;
 
 import java.awt.*;
 import java.awt.event.WindowAdapter;
@@ -11,13 +13,13 @@ import java.awt.event.WindowEvent;
  * @version 1, 3/28/2023
  * @pakage jeu_de_la_vie.interfaces
  */
-public class InterfaceAWT extends InterfaceGrafique {
+public class InterfaceAWT extends InterfaceGrafique implements Observateur {
 
     private static final double FRAME_SIZE_factor = 0.5 ;
 
     private Canvas canvas;
 
-    public InterfaceAWT(JeuDeLaVie jeu) {
+    public InterfaceAWT(JeuxDeLaVieFacade jeu) {
         super(jeu);
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         Frame frame = new Frame();
@@ -48,7 +50,7 @@ public class InterfaceAWT extends InterfaceGrafique {
         frame.setTitle("Jeu de la vie");
         frame.setVisible(true);
         this.jeu = jeu;
-        jeu.atacheObservateur(this);
+        jeu.addToGameChangeListener(this);
     }
 
 
