@@ -2,7 +2,7 @@ package jeu_de_la_vie.jeu.cellule_visiteur;
 
 
 import jeu_de_la_vie.jeu.JeuDeLaVie;
-import jeu_de_la_vie.jeu.cellule_etat.Cellule;
+import jeu_de_la_vie.jeu.cellule.Cellule;
 
 /**
  * @author LE GLEAU Yoann
@@ -14,7 +14,14 @@ public abstract class Visiteur {
 
         public Visiteur(JeuDeLaVie jeu) {
             this.jeu = jeu;
-            jeu.distribueVisiteur(this);
+        }
+
+        /**
+         * Set le jeu dans le patron Builder du jeu de la vie
+         * @param jeu le jeu au quel le visiteur vas ajouté les commandes
+         */
+        public void setJeu(JeuDeLaVie jeu) {
+            this.jeu = jeu;
         }
 
         public abstract void visiteCelluleVivante(Cellule cellule);

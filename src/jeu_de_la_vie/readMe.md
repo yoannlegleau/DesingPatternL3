@@ -11,13 +11,13 @@ Implementation du jeu de la vie en Java dans le cadre du [TP3](doc/Jeu de la Vie
 ## Design Pattern
 
 ### Pattern de creation d'objet
-| Pattern            | Utiliser    | Utilisation                                                                          |
-|--------------------|-------------| ------------------------------------------------------------------------------------ |
-| Singleton          | Oui         | Permet de créer une seule instance des classes CelluleEtatMort et CelluleEtatVivante |
-| Fabrique           | TP1-Canards |                                                                                      |
-| Fabrique Abstraite | TP1-Canards |                                                                                      |
-| Monteur            | 🧠          |                                                                                      |
-| Prototype (clone)  | ❌           |                                                                                      |
+| Pattern            | Utiliser    | Utilisation                                                                             |
+|--------------------|-------------|-----------------------------------------------------------------------------------------|
+| Singleton          | ✅          | Permet de créer une seule instance des classes CelluleEtatMort et CelluleEtatVivante    |
+| Fabrique           | TP1-Canards |                                                                                         |
+| Fabrique Abstraite | TP1-Canards |                                                                                         |
+| Monteur            | ✅           | Permet de cree des JeuDeLaVie avec des parametre diferent ou par defaus plus facilement |
+| Prototype (clone)  | ❌           |                                                                                         |
 
 ### Pattern structurels
 | Pattern                 | Utiliser    | Utilisation                                                                         |
@@ -31,18 +31,18 @@ Implementation du jeu de la vie en Java dans le cadre du [TP3](doc/Jeu de la Vie
 | Procuration (proxi/bdd) | 🧠          |                                                                                     |
 
 ### Pattern comportementaux
-| Pattern                  | Utiliser              | Utilisation                                                                         |
-| ------------------------ |-----------------------|-------------------------------------------------------------------------------------|
-| Chaîne de responsabilité | TP1-Canards           |                                                                                     |
-| Commande                 | ✅                     | Permet d'enregistre les modification de la grille (classe Commande)                 |
-| Itérateur                | TP2-Fichiers + 🧠     |                                                                                     |
-| Médiateur                | ✅                     | Permet de gerer les diferante action/evenelment de l'interface de facon centraliser |
-| Mémento                  | 🧠                    |                                                                                     |
-| Observateur              | ✅                     | Permet de mètre a jour l'interface après les calcules                               |
-| État                     | ✅                     | Permet de savoir si une cellule est morte ou vivante                                |
-| Stratégie                | TP2-Algo de tris + 🧠 |                                                                                     |
-| Patron de méthode        | ❌                     |                                                                                     |
-| Visiteur                 | ✅                     | Permet d'implémenter plusieurs Règles (basique …)                                   |
+| Pattern                  | Utiliser    | Utilisation                                                                         |
+| ------------------------ |-------------|-------------------------------------------------------------------------------------|
+| Chaîne de responsabilité | TP1-Canards |                                                                                     |
+| Commande                 | ✅           | Permet d'enregistre les modification de la grille (classe Commande)                 |
+| Itérateur                | ✅           | Permet de pacourire les celule d'une grille de sellule infinie                      |
+| Médiateur                | ✅           | Permet de gerer les diferante action/evenelment de l'interface de facon centraliser |
+| Mémento                  | 🧠          |                                                                                     |
+| Observateur              | ✅           | Permet de mètre a jour l'interface après les calcules                               |
+| État                     | ✅           | Permet de savoir si une cellule est morte ou vivante                                |
+| Stratégie                | ✅          | Permet de selectioner la methode d'initialisation de la grille (densiter)           |
+| Patron de méthode        | ❌           |                                                                                     |
+| Visiteur                 | ✅           | Permet d'implémenter plusieurs Règles (basique …)                                   |
 
 
 # diagramme de classe
@@ -55,9 +55,10 @@ Implementation du jeu de la vie en Java dans le cadre du [TP3](doc/Jeu de la Vie
 
 ## TODO
 - [x] Interface grafique en AWT
-- [ ] Écrire un deuxième observateur en mode texte qui se contente d’afficher dans la console Java le numéro de la génération courante et le nombre de cellules actuellement en vie.
-- [ ] Règles alternatives (classique)
-  - [ ] [HighLife](https://fr.wikipedia.org/wiki/HighLife_(automate_cellulaire))
+- [ ] Écrire observateur/visiteur qui compt le nombre de cellule vivante ou morte
+- [x] Écrire observateur qui compt le nombre de generation
+- [ ] Règles alternatives (classique) [wiki JDLV](https://conwaylife.com/wiki/Main_Page)
+  - [x] [HighLife](https://fr.wikipedia.org/wiki/HighLife_(automate_cellulaire))
     - Une cellule morte y naît à l'étape suivante si elle est entourée de 3 ou 6 voisines vivantes
     - une cellule vivante survit à l'étape suivante si elle est entourée de deux ou trois cellules vivantes.
   - [ ] [Day & Night](https://fr.wikipedia.org/wiki/Day_%26_Night)
@@ -74,11 +75,14 @@ Lorsqu'une cellule naît, si toutes les cellules qui lui ont donné naissance se
 - [X] Bouton pour exécuter/arrêter la boucle d’exécution
 - [X] Bouton pour avancer d’une génération lorsque la boucle est arrêtée ;
 - [X] Slider pour ajuster la vitesse de la boucle d’exécution ;
-- [ ] Contrôle de sélection des règles du jeu, etc.
+- [x] Contrôle de sélection des règles du jeu, etc.
 - [ ] Catalog de structure (depart)
-- [ ] variation de la danciter de depar si selectioner
+- [x] variateur de la densité de depart si sélectionner
+- [ ] pattern strategi + factory pour l'initialisation de la grille
+  - [x] aleatoire / densité
+  - [ ] pattern
 - [ ] taille de la grille / grille infinie
-- [X] Stoper la geeration quand tout est fix;
+- [X] Stopper la generation quand tout est fixe
 - [ ] methode de Undo (pattern memento)
 - [x] pattern Mediator pour la gestion de l'interface de creation de grille (class InterfaceGraphiqueSwing)
 - [x] pattern facade pour la gestion de l'interface avec jeux de la vie
@@ -86,7 +90,7 @@ Lorsqu'une cellule naît, si toutes les cellules qui lui ont donné naissance se
 - [ ] pattern poids mouche pour la gestion des cellule dans l'inteface
   - intrinsèque: etat , position
   - extrinsèque: couleur / image / taille ...
-- [ ] pattern monteur pour la creation de JeuxDeLaVie 
+- [x] pattern monteur pour la creation de JeuxDeLaVie 
 
 ## Interface grafique
 

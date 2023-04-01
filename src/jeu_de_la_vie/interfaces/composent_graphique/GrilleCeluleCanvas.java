@@ -20,7 +20,7 @@ public class GrilleCeluleCanvas extends Canvas implements Observateur {
     public GrilleCeluleCanvas(JeuxDeLaVieFacade jeu , JPanel parent) {
         super();
         this.jeu = jeu;
-        jeu.addToGameChangeListener(this);
+        jeu.atacheObservateur(this);
         this.jeuPanel = parent;
 
         this.setMinimumSize(new Dimension(0, 0));
@@ -42,6 +42,8 @@ public class GrilleCeluleCanvas extends Canvas implements Observateur {
 
         if (jeu == null || g == null) return;
 
+        //jeu.detacheObservateur(this); // on ne veut pas que le jeu actualise la grille pendant qu'on la dessine
+
         int size = 0;
         if (getHeight() > getWidth())
             size = getWidth();
@@ -58,6 +60,8 @@ public class GrilleCeluleCanvas extends Canvas implements Observateur {
                 }
             }
         }
+
+        //jeu.atacheObservateur(this); // on remet l'observateur
     }
 
     @Override

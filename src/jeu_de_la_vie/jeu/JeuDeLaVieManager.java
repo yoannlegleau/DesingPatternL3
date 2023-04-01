@@ -29,6 +29,10 @@ public class JeuDeLaVieManager implements Observable {
         observateurs = new ArrayList<>();
     }
 
+    public void setJeu(JeuDeLaVie jeu) {
+        this.jeu = jeu;
+    }
+
     public void setGenPerSec(double genPerSec ) {
         if (genPerSec == 0) {
             this.deley = Integer.MAX_VALUE;

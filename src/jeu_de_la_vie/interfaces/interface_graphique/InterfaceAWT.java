@@ -50,7 +50,7 @@ public class InterfaceAWT extends InterfaceGrafique implements Observateur {
         frame.setTitle("Jeu de la vie");
         frame.setVisible(true);
         this.jeu = jeu;
-        jeu.addToGameChangeListener(this);
+        jeu.atacheObservateur(this);
     }
 
 

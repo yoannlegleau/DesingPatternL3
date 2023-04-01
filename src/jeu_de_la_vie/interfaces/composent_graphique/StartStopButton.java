@@ -18,7 +18,7 @@ public class StartStopButton extends JButton implements Observateur {
     public StartStopButton(JeuxDeLaVieFacade jeu) {
         super("▶");
         this.jeu = jeu;
-        jeu.addToGameRunListener(this);
+        jeu.atacheObservateur(this);
 
         addActionListener(e -> action());
     }

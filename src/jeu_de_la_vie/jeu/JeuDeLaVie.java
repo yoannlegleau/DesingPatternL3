@@ -1,11 +1,11 @@
 package jeu_de_la_vie.jeu;
 
-import jeu_de_la_vie.jeu.cellule_etat.Cellule;
-import jeu_de_la_vie.jeu.cellule_etat.CelluleEtatMort;
-import jeu_de_la_vie.jeu.cellule_etat.CelluleEtatVivante;
+import jeu_de_la_vie.jeu.cellule.Cellule;
+import jeu_de_la_vie.jeu.cellule.CelluleGrid;
 import jeu_de_la_vie.jeu.cellule_visiteur.Visiteur;
 import jeu_de_la_vie.jeu.cellule_visiteur.VisiteurClassique;
 import jeu_de_la_vie.jeu.commande.Commande;
+import jeu_de_la_vie.jeu.init_strategy.InitStrategy;
 import jeu_de_la_vie.jeu.observateur.Observable;
 import jeu_de_la_vie.jeu.observateur.Observateur;
 
@@ -24,45 +24,26 @@ public class JeuDeLaVie implements Observable {
     private static final Double INITIALISATION_CELLUTES_VIVENTS_FACTEUR = 0.5;
 
     private List<Observateur> observateurs;
-    private Cellule[][] grille;
-
-    int xMax, yMax;
-
+    private CelluleGrid grille;
     private Stack<Commande> commandes;
 
-    public JeuDeLaVie() {
+    private Visiteur rule;
+
+    public JeuDeLaVie(InitStrategy initStrategy) {
         observateurs = new ArrayList<>();
-        commandes = new Stack<Commande>();
-        this.xMax = TAILLE_GRILLE;
-        this.yMax = TAILLE_GRILLE;
-        initialiseGrille();
+        commandes = new Stack<>();
+        grille = initStrategy.initGrid();
+        rule = new VisiteurClassique(this);//regle par defaut pour la sécuriter
     }
-    private void initialiseGrille() {
-        this.grille = new Cellule[xMax][yMax];
-        for (int i = 0; i < xMax; i++) {
-            for (int j = 0; j < yMax; j++) {
-                if (Math.random() < INITIALISATION_CELLUTES_VIVENTS_FACTEUR)
-                    this.grille[i][j] = new Cellule(i, j, CelluleEtatMort.getInstance());
-                else
-                    this.grille[i][j] = new Cellule(i, j, CelluleEtatVivante.getInstance());
-            }
-        }
+
+    public void setRule(Visiteur rull) {
+        this.rule = rull;
     }
 
     //Getters et Setters
 
-    public int getxMax() {
-        return xMax;
-    }
-
-    public int getyMax() {
-        return yMax;
-    }
-
-    public Cellule getGrilleXY(int x, int y) {
-        if (x < 0 || x >= xMax || y < 0 || y >= yMax)
-            return null; //en dehors de la grille
-        return this.grille[x][y];
+    public CelluleGrid getGrille() {
+        return grille;
     }
 
     /**
@@ -71,7 +52,7 @@ public class JeuDeLaVie implements Observable {
      */
     public boolean calculerGenerationSuivante(){
         boolean isModify = false;
-        distribueVisiteur(new VisiteurClassique(this));
+        distribueVisiteur(rule);
         if (!commandes.isEmpty())
             isModify = true;
         executeCommandes();
@@ -90,14 +71,10 @@ public class JeuDeLaVie implements Observable {
             commandes.pop().executer();
     }
 
-
     //Méthodes du pattern Visiteur
     public void distribueVisiteur(Visiteur visiteur) {
-        for (int x = 0; x < xMax; x++) {
-            for (int y = 0; y < yMax; y++) {
-                getGrilleXY(x,y).accepte(visiteur);
-            }
-        }
+        for (Cellule cellule : grille)
+            cellule.accepte(visiteur);
     }
 
     //Méthodes du pattern Observateur

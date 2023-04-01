@@ -1,7 +1,8 @@
-package jeu_de_la_vie.jeu.cellule_etat;
+package jeu_de_la_vie.jeu.cellule;
 
 
 import jeu_de_la_vie.jeu.JeuDeLaVie;
+import jeu_de_la_vie.jeu.cellule.etat.CelluleEtat;
 import jeu_de_la_vie.jeu.cellule_visiteur.Visiteur;
 
 /**
@@ -20,6 +21,14 @@ public class Cellule {
         this.y = y;
     }
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
     public void vit() {
         this.etat = this.etat.vit();
     }
@@ -34,15 +43,9 @@ public class Cellule {
 
     public int nombreDeVoisinesViventes(JeuDeLaVie jeu){
         int nombreDeVoisinesViventes = 0;
-        for (int xOfset = -1; xOfset <= 1; xOfset++) {
-            for (int yOfset = -1; yOfset <= 1; yOfset++) {
-                if (!(xOfset == 0 && yOfset == 0)) {
-                    Cellule voisine = jeu.getGrilleXY(x+xOfset,y+yOfset );
-                    if(voisine != null && voisine.estVivante())
-                        nombreDeVoisinesViventes++;
-                }
-            }
-        }
+        for (Cellule c : jeu.getGrille().getNeighbours(x,y))
+            if (c.estVivante())
+                nombreDeVoisinesViventes++;
         return nombreDeVoisinesViventes;
     }
 
@@ -59,4 +62,5 @@ public class Cellule {
                 ", y=" + y +
                 '}';
     }
+
 }

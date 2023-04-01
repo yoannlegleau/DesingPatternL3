@@ -16,7 +16,7 @@ public class GameInfoLabel extends JLabel implements Observateur {
     public GameInfoLabel(JeuxDeLaVieFacade jeu) {
         super();
         this.jeu = jeu;
-        jeu.addToGameChangeListener(this);
+        jeu.atacheObservateur(this);
         actualiser();
     }
 
