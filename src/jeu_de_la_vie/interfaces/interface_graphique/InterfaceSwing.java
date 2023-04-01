@@ -4,7 +4,9 @@ import jeu_de_la_vie.interfaces.JeuxDeLaVieFacade;
 import jeu_de_la_vie.interfaces.composent_graphique.GameInfoLabel;
 import jeu_de_la_vie.interfaces.composent_graphique.GrilleCeluleCanvas;
 import jeu_de_la_vie.interfaces.composent_graphique.StartStopButton;
+import jeu_de_la_vie.jeu.init_strategy.InitStrategy;
 import jeu_de_la_vie.jeu.init_strategy.InitStrategyDencity;
+import jeu_de_la_vie.jeu.init_strategy.InitStrategyEmpty;
 import jeu_de_la_vie.jeu.observateur.Observateur;
 
 import javax.swing.*;
@@ -25,11 +27,10 @@ public class InterfaceSwing extends InterfaceGrafique implements Observateur {
     private JButton nextGenButton;
     private JButton button1;
     private JButton button3;
-    private JButton clearButton;
     private JPanel controlPanel;
     private JPanel jeuPanel;
     private JComboBox<String> rullComboBox;
-    private JComboBox<String> intStrategyComboBox;
+    private JComboBox<String> initStrategyComboBox;
     private JLabel genLabel;
     private JPanel playButtonPanel;
     private JPanel GameInfoPanel;
@@ -112,12 +113,20 @@ public class InterfaceSwing extends InterfaceGrafique implements Observateur {
 
         // Choix de la strategie d'initialisation
 
-        intStrategyComboBox.addItem("densitè");
+        initStrategyComboBox.addActionListener(e -> {
+            changeInitStrategy((String) initStrategyComboBox.getSelectedItem());
+        });
+
+        initStrategyComboBox.addItem("Vide");
+
+        int denciterRadius = 10;
+
+        initStrategyComboBox.addItem("Densitè");
         densityValueLabel.setText(densitySlider.getValue()+" %");
         densitySlider.addChangeListener(e -> {
             int value = (densitySlider.getValue());
             densityValueLabel.setText( value + " %");
-            jeu.setInitStrategie(new InitStrategyDencity(jeu.getxMax(), jeu.getyMax(), value/100.0));
+            jeu.setInitStrategie(new InitStrategyDencity(InitStrategy.DEFAULT_SIZE,InitStrategy.DEFAULT_SIZE,value/100.0));
         });
 
 
@@ -137,6 +146,22 @@ public class InterfaceSwing extends InterfaceGrafique implements Observateur {
 
         frame.setVisible(true);
         root.requestFocusInWindow();
+    }
+
+    private void changeInitStrategy(String selectedItem) {
+
+        //faire disparaitre tot les formulaires
+        intiDencityFormFied.setVisible(false);
+
+        switch (selectedItem) {
+            case "Densitè":
+                intiDencityFormFied.setVisible(true);
+                jeu.setInitStrategie(new InitStrategyDencity(jeu.getxMax(), jeu.getyMax(), densitySlider.getValue() / 100.0));
+                break;
+            case "Vide":
+                jeu.setInitStrategie(new InitStrategyEmpty());
+                break;
+        }
     }
 
     private void addRullToSelect(JComboBox rullComboBox) {

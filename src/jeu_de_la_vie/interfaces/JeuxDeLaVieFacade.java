@@ -4,6 +4,7 @@ import jeu_de_la_vie.jeu.JeuDeLaVie;
 import jeu_de_la_vie.jeu.JeuDeLaVieManager;
 import jeu_de_la_vie.jeu.builder.JeuDeLaVieBuilder;
 import jeu_de_la_vie.jeu.builder.JeuDeLaVieBuilderImpl;
+import jeu_de_la_vie.jeu.cellule.CelluleGrille;
 import jeu_de_la_vie.jeu.cellule_visiteur.VisiteurClassique;
 import jeu_de_la_vie.jeu.cellule_visiteur.VisiteurHighLife;
 import jeu_de_la_vie.jeu.init_strategy.InitStrategy;
@@ -33,23 +34,23 @@ public class JeuxDeLaVieFacade implements Observable , Observateur {
 
     public JeuxDeLaVieFacade() {
         observateurs = new ArrayList<>();
-        builder = JeuDeLaVieBuilderImpl.getInstance();
+        builder = JeuDeLaVieBuilderImpl.getBuilder().setListener(this);
 
         JeuDeLaVie jeu = builder.build();
         manager = new JeuDeLaVieManager(jeu);
         manager.atacheObservateur(this);
-        compteur = new ObservateurCompteur(jeu);
         initGame(jeu);
 
     }
 
     private void initGame(JeuDeLaVie jeuDeLaVie) {
-        if (jeu != null)
+        if (jeu != null) {
             jeu.detacheObservateur(this);
+            jeu.detacheObservateur(compteur);
+        }
         jeu = jeuDeLaVie;
-        jeu.atacheObservateur(this);
         manager.setJeu(jeu);
-
+        compteur = new ObservateurCompteur(jeu);
         notifieObservateurs();
     }
 
@@ -124,5 +125,9 @@ public class JeuxDeLaVieFacade implements Observable , Observateur {
     @Override
     public void actualiser() {
         notifieObservateurs();
+    }
+
+    public CelluleGrille getGrid() {
+        return jeu.getGrille();
     }
 }

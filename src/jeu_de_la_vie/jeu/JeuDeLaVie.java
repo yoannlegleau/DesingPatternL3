@@ -1,7 +1,7 @@
 package jeu_de_la_vie.jeu;
 
 import jeu_de_la_vie.jeu.cellule.Cellule;
-import jeu_de_la_vie.jeu.cellule.CelluleGrid;
+import jeu_de_la_vie.jeu.cellule.CelluleGrille;
 import jeu_de_la_vie.jeu.cellule_visiteur.Visiteur;
 import jeu_de_la_vie.jeu.cellule_visiteur.VisiteurClassique;
 import jeu_de_la_vie.jeu.commande.Commande;
@@ -24,7 +24,7 @@ public class JeuDeLaVie implements Observable {
     private static final Double INITIALISATION_CELLUTES_VIVENTS_FACTEUR = 0.5;
 
     private List<Observateur> observateurs;
-    private CelluleGrid grille;
+    private CelluleGrille grille;
     private Stack<Commande> commandes;
 
     private Visiteur rule;
@@ -42,7 +42,7 @@ public class JeuDeLaVie implements Observable {
 
     //Getters et Setters
 
-    public CelluleGrid getGrille() {
+    public CelluleGrille getGrille() {
         return grille;
     }
 

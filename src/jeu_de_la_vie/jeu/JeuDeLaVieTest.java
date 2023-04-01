@@ -1,7 +1,7 @@
 package jeu_de_la_vie.jeu;
 
 import jeu_de_la_vie.jeu.cellule.Cellule;
-import jeu_de_la_vie.jeu.cellule.CelluleGrid;
+import jeu_de_la_vie.jeu.cellule.CelluleGrille;
 import jeu_de_la_vie.jeu.cellule.etat.CelluleEtatVivante;
 import jeu_de_la_vie.jeu.init_strategy.InitStrategy;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,8 +21,8 @@ class JeuDeLaVieTest {
     void setUp() {
         jeuDeLaVie = new JeuDeLaVie(new InitStrategy() {
             @Override
-            public CelluleGrid initGrid() {
-                CelluleGrid celluleGrid = new CelluleGrid(3,3);
+            public CelluleGrille initGrid() {
+                CelluleGrille celluleGrid = new CelluleGrille(3,3);
                 celluleGrid.setXY(1,0,new Cellule(1,0, CelluleEtatVivante.getInstance()));
                 celluleGrid.setXY(1,1,new Cellule(1,1, CelluleEtatVivante.getInstance()));
                 celluleGrid.setXY(1,2,new Cellule(1,2, CelluleEtatVivante.getInstance()));

@@ -42,11 +42,7 @@ public class Cellule {
     }
 
     public int nombreDeVoisinesViventes(JeuDeLaVie jeu){
-        int nombreDeVoisinesViventes = 0;
-        for (Cellule c : jeu.getGrille().getNeighbours(x,y))
-            if (c.estVivante())
-                nombreDeVoisinesViventes++;
-        return nombreDeVoisinesViventes;
+        return jeu.getGrille().getLiveNeighbours(x,y).size();
     }
 
 

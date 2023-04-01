@@ -78,10 +78,15 @@ Lorsqu'une cellule naît, si toutes les cellules qui lui ont donné naissance se
 - [x] Contrôle de sélection des règles du jeu, etc.
 - [ ] Catalog de structure (depart)
 - [x] variateur de la densité de depart si sélectionner
-- [ ] pattern strategi + factory pour l'initialisation de la grille
+- [x] pattern strategi + factory pour l'initialisation de la grille
   - [x] aleatoire / densité
   - [ ] pattern
-- [ ] taille de la grille / grille infinie
+- [ ] grille infinie (18446744056 milliards de cellules)
+  - [x] affichage d'une partie de la grille
+  - [ ] deplacement de la "camera"
+    - [ ] drag and drop
+    - [x] touch directionnel
+  - [x] zoom
 - [X] Stopper la generation quand tout est fixe
 - [ ] methode de Undo (pattern memento)
 - [x] pattern Mediator pour la gestion de l'interface de creation de grille (class InterfaceGraphiqueSwing)

@@ -30,6 +30,7 @@ public class JeuDeLaVieManager implements Observable {
     }
 
     public void setJeu(JeuDeLaVie jeu) {
+
         this.jeu = jeu;
     }
 

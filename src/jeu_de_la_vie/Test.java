@@ -14,7 +14,6 @@ import static java.lang.Thread.sleep;
 public class Test {
     public static void main(String[] args) {
         JeuxDeLaVieFacade jeu = new JeuxDeLaVieFacade();
-
         //lancement des interfaces
         //new InterfaceAWT(jeu);
         //new InterfaceTerminal(jeu);
