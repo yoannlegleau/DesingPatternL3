@@ -21,6 +21,8 @@ public class GrilleCeluleCanvas extends Canvas implements Observateur {
     private JPanel jeuPanel;
     private int cellsize;
 
+    private Boolean drawDeadCells = false;
+
     Double cellCenterX = 0.0 , cellCenterY = 0.0;
     Double mouseCellX = 0.0 , mouseCellY = 0.0;
 
@@ -44,13 +46,10 @@ public class GrilleCeluleCanvas extends Canvas implements Observateur {
         // gestion du du zoom et des deplacement
 
         addMouseWheelListener(e -> {
-            boolean resized;
             if (e.getWheelRotation() < 0)
-                resized = upCellSize();
+                upCellSize();
             else
-                resized = downCellSize();
-            if (resized)
-                repaint();
+                downCellSize();
         });
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -113,6 +112,9 @@ public class GrilleCeluleCanvas extends Canvas implements Observateur {
             }
         });
 
+        // Ajouter le JPanel en bas du canvas
+
+
         this.setMinimumSize(new Dimension(0, 0));
         jeuPanel.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentResized(java.awt.event.ComponentEvent evt) {
@@ -121,21 +123,34 @@ public class GrilleCeluleCanvas extends Canvas implements Observateur {
         });
     }
 
-
-    private boolean upCellSize(){
-        if (this.cellsize < cellsizeMax) {
-            this.cellsize += 1;
-            return true;
-        }
-        return false;
+    public Boolean isDrawDeadCells() {
+        return drawDeadCells;
     }
 
-    private boolean downCellSize(){
+    public void setDrawDeadCells(Boolean drawDeadCells) {
+        this.drawDeadCells = drawDeadCells;
+        repaint();
+    }
+
+    public void reCenter() {
+        cellCenterX = 0.0;
+        cellCenterY = 0.0;
+        repaint();
+    }
+
+    public void upCellSize(){
+        if (this.cellsize < cellsizeMax) {
+            this.cellsize += 1;
+            repaint();
+        }
+
+    }
+
+    public void downCellSize(){
         if (this.cellsize > cellsizeMin) {
             this.cellsize -= 1;
-            return true;
+            repaint();
         }
-        return false;
     }
 
     private void resizeCanvas() {
@@ -163,8 +178,12 @@ public class GrilleCeluleCanvas extends Canvas implements Observateur {
                 xCellCapacity, yCellCapacity)) {
             if(c.estVivante())
                 g.setColor(new Color(67, 160, 71));
-            else
-                g.setColor(new Color(241, 223, 223));
+            else {
+                if (drawDeadCells)
+                    g.setColor(new Color(241, 223, 223));
+                else
+                    continue;
+            }
             g.fillOval((int) (pxCenterX+(c.getX()-cellCenterX)*cellsize - (cellsize/2)),
                     (int) (pxCenterY+ (c.getY()-cellCenterY)*cellsize - (cellsize/2)),
                     cellsize,cellsize);
@@ -182,4 +201,5 @@ public class GrilleCeluleCanvas extends Canvas implements Observateur {
     public void actualiser() {
         repaint();
     }
+
 }

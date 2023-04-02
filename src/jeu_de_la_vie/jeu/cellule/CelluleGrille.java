@@ -38,11 +38,12 @@ public class CelluleGrille implements Iterable<Cellule> {
     public void setXY(int x, int y, Cellule cellule) {
         if (!isInGrid(x, y))
             return;
-
         if (!grille.containsKey(x))
             grille.put(x, new HashMap<>());
         if (!grille.get(x).containsKey(y))
             grille.get(x).put(y, cellule);
+
+
     }
 
     /**
@@ -96,9 +97,19 @@ public class CelluleGrille implements Iterable<Cellule> {
                 }
 
 
+
         // Si la cellule n'a pas de voisins vivants, on la supprime pour ne pas la prendre en compte dans le calcul de la génération suivante.
-        if (neighbours.isEmpty())
+        if (neighbours.isEmpty()) {
             grille.get(x).remove(y);
+            if (grille.get(x).isEmpty())
+                grille.remove(x);
+        } else if (!(grille.get(x).get(y).estVivante()))
+            //generer tout les voisin en les chercenant dans la grille
+            for (int i = x - 1; i <= x + 1; i++)
+                for (int j = y - 1; j <= y + 1; j++)
+                    getXY(i, j);
+
+
         return neighbours;
     }
 

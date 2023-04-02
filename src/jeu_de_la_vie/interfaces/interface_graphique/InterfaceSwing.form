@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="root" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="858" height="718"/>
+      <xy x="20" y="20" width="860" height="718"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -51,18 +51,40 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="710e9" class="javax.swing.JButton" binding="button1" default-binding="true">
+              <component id="65709" class="javax.swing.JCheckBox" binding="drawDeadCellCheckBox">
                 <constraints/>
                 <properties>
-                  <text value="+"/>
+                  <contentAreaFilled value="false"/>
+                  <label value="DrawDeadCell"/>
+                  <text value="DrawDeadCell"/>
                 </properties>
               </component>
-              <component id="1338f" class="javax.swing.JButton" binding="button3" default-binding="true">
+              <grid id="75af4" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
                 <constraints/>
-                <properties>
-                  <text value="-"/>
-                </properties>
-              </component>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="1338f" class="javax.swing.JButton" binding="zoomOut">
+                    <constraints/>
+                    <properties>
+                      <text value="-"/>
+                    </properties>
+                  </component>
+                  <component id="710e9" class="javax.swing.JButton" binding="zoomIn">
+                    <constraints/>
+                    <properties>
+                      <text value="+"/>
+                    </properties>
+                  </component>
+                  <component id="f9d56" class="javax.swing.JButton" binding="rencenterButton" default-binding="true">
+                    <constraints/>
+                    <properties>
+                      <label value="Rencentrer"/>
+                      <text value="Rencentrer"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
             </children>
           </grid>
         </children>
@@ -221,8 +243,8 @@
                 </properties>
                 <border type="none"/>
                 <children>
-                  <grid id="31acf" binding="intiDencityFormFied" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-                    <margin top="0" left="0" bottom="0" right="0"/>
+                  <grid id="31acf" binding="intiDencityFormFied" layout-manager="GridLayoutManager" row-count="4" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                    <margin top="8" left="8" bottom="8" right="8"/>
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                     </constraints>
@@ -232,7 +254,9 @@
                       <opaque value="false"/>
                       <visible value="true"/>
                     </properties>
-                    <border type="none"/>
+                    <border type="line">
+                      <color color="-14855650"/>
+                    </border>
                     <children>
                       <component id="6f4b8" class="javax.swing.JLabel">
                         <constraints>
@@ -253,6 +277,38 @@
                       <component id="6b4bb" class="javax.swing.JLabel" binding="densityValueLabel">
                         <constraints>
                           <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="Label"/>
+                        </properties>
+                      </component>
+                      <component id="cc702" class="javax.swing.JLabel">
+                        <constraints>
+                          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="Dienetion"/>
+                        </properties>
+                      </component>
+                      <component id="2c4a3" class="javax.swing.JFormattedTextField" binding="dimentionTextField1">
+                        <constraints>
+                          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="3" indent="0" use-parent-layout="false">
+                            <preferred-size width="150" height="-1"/>
+                          </grid>
+                        </constraints>
+                        <properties/>
+                      </component>
+                      <component id="9a6fe" class="javax.swing.JButton" binding="dimentionButton">
+                        <constraints>
+                          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                        </constraints>
+                        <properties>
+                          <text value="OK"/>
+                        </properties>
+                      </component>
+                      <component id="f853b" class="javax.swing.JLabel" binding="dimentionLabel">
+                        <constraints>
+                          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties>
                           <text value="Label"/>

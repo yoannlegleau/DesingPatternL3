@@ -30,6 +30,14 @@ public class InitStrategyDencity implements InitStrategy {
             for (int j = -yMax; j < yMax; j++)
                 if (Math.random() < factor)
                     grid.setXY(i, j, new Cellule(i, j, CelluleEtatVivante.getInstance()));
+
+        //FIXME: bug a la generation 0 les cellules mortes ne sont pas crees
+        // | pour fixier temporairement on verifie les voisins de chaque cellule, ce qui genere les cellules mortes
+        for (Cellule c : grid)
+            grid.getLiveNeighbours(c.getX(), c.getY());
+        for (Cellule c : grid)
+            grid.getLiveNeighbours(c.getX(), c.getY());
+
         return grid;
     }
 }

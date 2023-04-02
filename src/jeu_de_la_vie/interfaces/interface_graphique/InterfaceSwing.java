@@ -4,7 +4,6 @@ import jeu_de_la_vie.interfaces.JeuxDeLaVieFacade;
 import jeu_de_la_vie.interfaces.composent_graphique.GameInfoLabel;
 import jeu_de_la_vie.interfaces.composent_graphique.GrilleCeluleCanvas;
 import jeu_de_la_vie.interfaces.composent_graphique.StartStopButton;
-import jeu_de_la_vie.jeu.init_strategy.InitStrategy;
 import jeu_de_la_vie.jeu.init_strategy.InitStrategyDencity;
 import jeu_de_la_vie.jeu.init_strategy.InitStrategyEmpty;
 import jeu_de_la_vie.jeu.observateur.Observateur;
@@ -25,8 +24,8 @@ public class InterfaceSwing extends InterfaceGrafique implements Observateur {
     private JPanel root;
     private JPanel game;
     private JButton nextGenButton;
-    private JButton button1;
-    private JButton button3;
+    private JButton zoomIn;
+    private JButton zoomOut;
     private JPanel controlPanel;
     private JPanel jeuPanel;
     private JComboBox<String> rullComboBox;
@@ -41,20 +40,23 @@ public class InterfaceSwing extends InterfaceGrafique implements Observateur {
     private JPanel intiDencityFormFied;
     private JSlider densitySlider;
     private JLabel densityValueLabel;
+    private JFormattedTextField dimentionTextField1;
+    private JButton dimentionButton;
+    private JLabel dimentionLabel;
+    private JCheckBox drawDeadCellCheckBox;
+    private JButton rencenterButton;
 
 
     // composent graphique personalisé
 
+    private GrilleCeluleCanvas grilleCeluleCanvas;
+
     private StartStopButton startStopButton;
 
-
     // Utilitaire de generation de jeu de la vie
-    // TODO: refactor dans une classe a part
-
-
-
-
-
+    // Generation par densité
+    int denciterRadius = InitStrategyDencity.DEFAULT_SIZE;
+    double dencity = 0.5;
 
     public InterfaceSwing(JeuxDeLaVieFacade jeu) {
         super(jeu);
@@ -77,10 +79,16 @@ public class InterfaceSwing extends InterfaceGrafique implements Observateur {
 
 
         // initialisation des composent
-        jeuPanel.add(new GrilleCeluleCanvas(jeu, jeuPanel));
+        grilleCeluleCanvas = new GrilleCeluleCanvas(jeu, jeuPanel);
+        jeuPanel.add(grilleCeluleCanvas);
         startStopButton = new StartStopButton(jeu);
         playButtonPanel.add(startStopButton);
         GameInfoPanel.add(new GameInfoLabel(jeu));
+        drawDeadCellCheckBox.setSelected(grilleCeluleCanvas.isDrawDeadCells());
+        drawDeadCellCheckBox.addActionListener(e -> grilleCeluleCanvas.setDrawDeadCells(drawDeadCellCheckBox.isSelected()));
+        zoomIn.addActionListener(e -> grilleCeluleCanvas.upCellSize());
+        zoomOut.addActionListener(e -> grilleCeluleCanvas.downCellSize());
+        rencenterButton.addActionListener(e -> grilleCeluleCanvas.reCenter());
 
         nextGenButton.addActionListener(e -> {
             if (!jeu.isRunning())
@@ -119,15 +127,25 @@ public class InterfaceSwing extends InterfaceGrafique implements Observateur {
 
         initStrategyComboBox.addItem("Vide");
 
-        int denciterRadius = 10;
 
         initStrategyComboBox.addItem("Densitè");
         densityValueLabel.setText(densitySlider.getValue()+" %");
         densitySlider.addChangeListener(e -> {
-            int value = (densitySlider.getValue());
-            densityValueLabel.setText( value + " %");
-            jeu.setInitStrategie(new InitStrategyDencity(InitStrategy.DEFAULT_SIZE,InitStrategy.DEFAULT_SIZE,value/100.0));
+            setDencityStrategie();
         });
+        dimentionLabel.setText(denciterRadius+"");
+        dimentionTextField1.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                super.keyPressed(e);
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    setDencityStrategie();
+                }
+            }
+        });
+        dimentionButton.addActionListener(e -> setDencityStrategie());
+
+
 
 
 
@@ -167,6 +185,19 @@ public class InterfaceSwing extends InterfaceGrafique implements Observateur {
     private void addRullToSelect(JComboBox rullComboBox) {
         rullComboBox.addItem("Clasique (Conway)");
         rullComboBox.addItem("HighLife");
+    }
+    private void setDencityStrategie() {
+        String nbSring = dimentionTextField1.getText().replaceAll("[^0-9]", "");
+        if (nbSring.length() != 0) {
+            denciterRadius = Integer.parseInt(nbSring);
+            dimentionLabel.setText(nbSring);
+            dimentionTextField1.setText(nbSring);
+        }
+
+        dencity = densitySlider.getValue()/100.0;
+        densityValueLabel.setText((int)(dencity*100) + " %");
+
+        jeu.setInitStrategie(new InitStrategyDencity(denciterRadius,denciterRadius,dencity));
     }
 
     @Override
