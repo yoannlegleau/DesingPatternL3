@@ -160,12 +160,15 @@ public class GrilleCeluleCanvas extends Canvas implements Observateur {
 
     @Override
     public void paint(Graphics g) {
-        super.paint(g);
         if (jeu == null || g == null) return;
 
         jeu.detacheObservateur(this); // on ne veut pas que le jeu actualise la grille pendant qu'on la dessine
 
+
         Dimension size = getSize();
+        Image offscreen = createImage(size.width, size.height);
+        Graphics offgc = offscreen.getGraphics();
+
         int xCellCapacity = (size.width / cellsize) + 2;
         int yCellCapacity = (size.height / cellsize) + 2;
 
@@ -177,24 +180,30 @@ public class GrilleCeluleCanvas extends Canvas implements Observateur {
                 (int) (cellCenterX-(xCellCapacity/2)), (int) (cellCenterY-(yCellCapacity/2)),
                 xCellCapacity, yCellCapacity)) {
             if(c.estVivante())
-                g.setColor(new Color(67, 160, 71));
+                offgc.setColor(new Color(67, 160, 71));
             else {
                 if (drawDeadCells)
-                    g.setColor(new Color(241, 223, 223));
+                    offgc.setColor(new Color(241, 223, 223));
                 else
                     continue;
             }
-            g.fillOval((int) (pxCenterX+(c.getX()-cellCenterX)*cellsize - (cellsize/2)),
+            offgc.fillOval((int) (pxCenterX+(c.getX()-cellCenterX)*cellsize - (cellsize/2)),
                     (int) (pxCenterY+ (c.getY()-cellCenterY)*cellsize - (cellsize/2)),
                     cellsize,cellsize);
 
         }
+        g.drawImage(offscreen, 0, 0, this);
         jeu.atacheObservateur(this); // on remet l'observateur
     }
 
     @Override
     public void repaint() {
         super.repaint();
+    }
+
+    @Override
+    public void update(Graphics g) {
+        paint(g);
     }
 
     @Override
