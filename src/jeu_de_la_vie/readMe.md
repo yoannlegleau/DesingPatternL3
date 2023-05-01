@@ -5,6 +5,18 @@ Ce document est issu du projet suivent [TP3 Jeux de la vie](https://github.com/y
 
 ---
 
+# Instalation
+
+- ⬇ Télecharger java 15 ou plus [ici](https://www.oracle.com/java/technologies/downloads/)
+- ⬇ Télecharger l'executable JAR [ici]()
+- 👇 Executer le fichier .JAR
+  - double cliquer dessu
+  - ou en utilisant la commande `java -jar JeuDeLaVie.jar`
+- 🎉 amuser vous !
+  - pour plus d'information sur comment utiliser le jeu voir le [manuel Utilisateur](https://github.com/yoannlegleau/DesingPatternL3/blob/master/src/jeu_de_la_vie/doc/ManuelUtilisatuer.md)
+
+---
+
 ## Description
 Implementation du jeu de la vie en Java dans le cadre du [TP3](doc/Jeu de la Vie.html) sur les Design Patterns.
 
