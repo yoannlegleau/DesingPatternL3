@@ -5,8 +5,7 @@ import jeu_de_la_vie.jeu.JeuDeLaVieManager;
 import jeu_de_la_vie.jeu.builder.JeuDeLaVieBuilder;
 import jeu_de_la_vie.jeu.builder.JeuDeLaVieBuilderImpl;
 import jeu_de_la_vie.jeu.cellule.CelluleGrille;
-import jeu_de_la_vie.jeu.cellule_visiteur.VisiteurClassique;
-import jeu_de_la_vie.jeu.cellule_visiteur.VisiteurHighLife;
+import jeu_de_la_vie.jeu.cellule_visiteur.*;
 import jeu_de_la_vie.jeu.init_strategy.InitStrategy;
 import jeu_de_la_vie.jeu.observateur.Observable;
 import jeu_de_la_vie.jeu.observateur.Observateur;
@@ -115,6 +114,9 @@ public class JeuxDeLaVieFacade implements Observable , Observateur {
         switch (rullName){
             case "Clasique (Conway)" -> builder.setRules(new VisiteurClassique(null));
             case "HighLife" -> builder.setRules(new VisiteurHighLife(null));
+            case "Day & Night" -> builder.setRules(new VisiteurDayNight(null));
+            case "Maze" -> builder.setRules(new VisiteurMaze(null));
+            default -> builder.setRules(new VisiteurRuleString(null, rullName));
         }
     }
 

@@ -8,6 +8,8 @@ Ce document est issu du projet suivent [TP3 Jeux de la vie](https://github.com/y
 ## Description
 Implementation du jeu de la vie en Java dans le cadre du [TP3](doc/Jeu de la Vie.html) sur les Design Patterns.
 
+regle de base du [jeux de la vie](https://conwaylife.com/wiki/Conway%27s_Game_of_Life)
+
 ## Design Pattern
 
 ### Pattern de creation d'objet
@@ -57,21 +59,11 @@ Implementation du jeu de la vie en Java dans le cadre du [TP3](doc/Jeu de la Vie
 - [x] Interface grafique en AWT
 - [ ] Écrire observateur/visiteur qui compt le nombre de cellule vivante ou morte
 - [x] Écrire observateur qui compt le nombre de generation
-- [ ] Règles alternatives (classique) [wiki JDLV](https://conwaylife.com/wiki/Main_Page)
-  - [x] [HighLife](https://fr.wikipedia.org/wiki/HighLife_(automate_cellulaire))
-    - Une cellule morte y naît à l'étape suivante si elle est entourée de 3 ou 6 voisines vivantes
-    - une cellule vivante survit à l'étape suivante si elle est entourée de deux ou trois cellules vivantes.
-  - [ ] [Day & Night](https://fr.wikipedia.org/wiki/Day_%26_Night)
-    - Une cellule morte y naît à l'étape suivante si elle est entourée de 3, 6, 7 ou 8 voisines vivantes
-    -  une cellule vivante survit à l'étape suivante si elle est entourée de 3, 4, 6, 7 ou 8 cellules vivantes
-- [ ] Règles alternatives (multiple vie)
-  - [ ] [QuadLife](https://fr.wikipedia.org/wiki/QuadLife)
-    - Une cellule morte y naît à l'étape suivante si elle est entourée de 3 voisines
-    - une cellule vivante survit à l'étape suivante si elle est entourée de 2 ou 3 cellules vivantes.
-Lorsqu'une cellule naît, si toutes les cellules qui lui ont donné naissance se trouvent dans des états différents, la nouvelle cellule prend l'état restant. Dans le cas contraire, elle prend l'état de la majorité des trois cellules.
-  - [ ] [Immigration](https://fr.wikipedia.org/wiki/Immigration_(automate_cellulaire))
-    - Une cellule morte naît à l'étape suivante si elle est entourée de 3 voisines vivantes et prendra la couleur (ou état) de la majorité de celles-ci ;
-    - Une cellule vivante survit à l'étape suivante si elle est entourée de 2 ou 3 cellules vivantes.
+- [ ] Règles alternatives (classique) [wiki JDLV](https://conwaylife.com/wiki/Main_Page): [liste de règles](https://conwaylife.com/wiki/List_of_Life-like_rules)
+  - [x] [HighLife](https://conwaylife.com/wiki/OCA:HighLife)
+  - [ ] [Day & Night](https://conwaylife.com/wiki/OCA:Day_%26_Night)
+  - [ ] [Maze](https://conwaylife.com/wiki/OCA:Maze)
+
 - [X] Bouton pour exécuter/arrêter la boucle d’exécution
 - [X] Bouton pour avancer d’une génération lorsque la boucle est arrêtée ;
 - [X] Slider pour ajuster la vitesse de la boucle d’exécution ;

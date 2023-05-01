@@ -31,7 +31,7 @@ public class GrilleCeluleCanvas extends Canvas implements Observateur {
     private double startX = 0 , startY = 0;
     private double startCenterX = 0 , startCenterY = 0;
 
-    private int cellsizeMax = 200 , cellsizeMin = 5;
+    private int cellsizeMax = 200 , cellsizeMin = 2;
 
 
     public GrilleCeluleCanvas(JeuxDeLaVieFacade jeu , JPanel parent) {
